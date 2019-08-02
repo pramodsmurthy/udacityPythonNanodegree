@@ -1,0 +1,19 @@
+Data Structures:
+	Since the problem statement is a case of finding same thing repeatedly, recursion is a good data structure to use.
+
+Algorithm / Pseudocode:
+	For each entry in the path:
+		if path is empty:
+			return the filelist
+		else if path is a file:
+			if file ends with given suffix:
+				append to filelist
+		else if path is a directory:
+			for each entry in directory:
+				add entry to pathslist
+		
+		if valid entry in pathslist:
+			call_function_recursively(next_entry_in_pathslist)
+			
+Complexity:
+	Since each entry is processed only once, complexity is O(n).

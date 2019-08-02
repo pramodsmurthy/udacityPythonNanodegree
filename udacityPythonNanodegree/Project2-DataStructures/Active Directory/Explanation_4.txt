@@ -1,0 +1,21 @@
+Data Structures:
+	The current group's group list could be any number of groups. To recursively search for given user in 
+	each of those groups, we can use recursion. 
+
+Algorithm / Pseudocode:
+	is_user_in_group(user, group):
+		val = False
+		for u in group.users:
+			if u == user:
+				return True
+		
+		for g in group.groups:
+			val = is_user_in_group(user, g)
+			if val:
+				break
+		return val
+
+Time Complexity:
+	Time taken is O(n), where n is the length of users in each of the current group's groups (and their groups and so on)
+	                                 + length of users in current group
+				

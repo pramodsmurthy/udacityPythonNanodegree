@@ -1,0 +1,44 @@
+Data Structures:
+
+* To find which item was least recently used, software should know the order of item insertion. 
+  There are two ways to do this, maintain a separate data structure that remembers the order (or), 
+  check if there is a data structure that remembers the order as well as the items. 
+
+* Since the operations are cache-based, all the operations should be extremely quick. 
+  So both get and set should be O(1). 
+
+* Dictionaries which uses hash tables internally provide O(1) retrieval and insertion times. So they can
+  be used to store items. 
+  Instead of using another dictionary to remember the order in which the items were inserted, we could use 
+  a variation of dictionaries called ordereddicts that does the regular job of dicts but also remembers 
+  the order at which the keys were inserted.
+
+Algorithms / Pseudocode:
+	Get Operation:
+	Since reading an item is also an 'access', we need to remember that this item is the latest item. 
+	For each read:
+		if key in dict:
+			remove the item --- O(1)
+			insert the item back --- O(1)
+			get the key value
+			return value
+		else:
+			return -1
+	
+	For each write:
+		if key in dict:
+			remove the item --- O(1)
+		else if dict is full:
+			remove the least recently used --- O(1)
+		insert the item --- O(1)
+
+Time Complexity:
+	Complexity for both get and set operations is O(1). Theoretically, since dicts use hash tables internally, and in 
+    the event of a very bad hashing function (all inputs generating same hash value which is unlikely), time 
+	complexity will be O(n).
+	
+Space Complexity:
+	Memory is reserved for using dict items. Reserved memory is proportional to the size of capacity.
+	Python dicts internally store <hash, key, value> pairs. 
+	Size of one such pair * capacity = total required size. 
+		

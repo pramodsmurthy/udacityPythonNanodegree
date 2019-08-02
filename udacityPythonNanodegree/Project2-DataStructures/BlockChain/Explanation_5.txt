@@ -1,0 +1,27 @@
+Data Structures:
+	The word block chain says it is a chain. Linked list is the easiest way to chain elements. 
+
+Algorithm:
+	Since a blockchain is a 'chain of blocks', we can implement blockchain as a 'link of blocks' or a 'link of nodes'. 
+	So each block will be a node. Following info is stored in each node:
+		link to next node
+		data
+		timestamp
+		hash of current block
+		hash of prev block
+	Blockchain will be class with below attributes:
+		head - To keep track of the start of blockchain.
+		num_entries - This is a good to have field, not mandotory.
+
+Time Complexity:
+	Time complexities of a linked list applies to blockchain as well. 
+	Worst case complexity is O(n) (since we need to traverse whole chain to find a block)
+
+Space Complexity:
+	Memory Required = Space required for each block (constant) * total number of blocks that are added
+	If the number of blocks is n, space complexity = O(n)
+	
+NOTE:
+    The above algorithm can be improved further by using hash as keys and storing each block as a key value. 
+	This way, retrieval time complexity will be O(1).
+

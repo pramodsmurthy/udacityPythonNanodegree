@@ -1,0 +1,27 @@
+Data Structures:
+	Use a list to keep track of appended union items and intersection items.
+
+Algorithm / Pseudocode:
+	Union:
+	For each element in linked list 1:
+		if not in union
+			add it to union
+	For each element in linked list 2:
+		if not in union:
+			add it to union
+
+	Intersection:
+	for each element in linked list 1:
+		if element in linked list 2 and not in inter:
+			add it to inter
+	
+	for each element in linked list 2:
+		if element in linked list 1 and not in inter:
+			add it to inter
+
+Time Complexity:
+	For union, we iterate each element of 1st linked list and 2nd linked list separately and once. For each 
+	element, we check if the element is already present in new list. So complexity is O(n^2).
+	For intersection, O(n^3). For each item in list, we scan through the other list to see 
+	if the object is present there and we also check if the element is already present in new list (inter). 
+	Thus time complexity is O(n^3).

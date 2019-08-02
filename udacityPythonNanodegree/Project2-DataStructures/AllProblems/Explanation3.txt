@@ -1,0 +1,26 @@
+Huffman algorithm has below mentioned:
+
+* Find the frequency of all characters in a string.
+* Store characters along with their frequencies and sort them based on their frequencies.
+* Assign codes for each character. Assign small codes for most frequent characters and longer codes for less frequent characters.
+* Decode the compressed data using similar logic. 
+
+Data Structures and Time Complexity:
+
+1) find_freq(input_data)               --- Dictionary is an obvious choice to store characters along with their frequencies, because dicts have constant time store and retrieval. Complexity is O(n) [To iterate through each character in input string]
+2) sortdata = sort_on_freq(fr)         --- O(n) time to iterate through every character. Append a tuple of frequency and character to a list is O(1). Sort takes O(nlogn). Time taken by this step is O(n) + O(nlogn).
+3) singletree = assign_codes(sortdata) --- assign_codes has 3 sub-steps.
+                                        create-tree --- Takes O(n) time to iterate through all tuples. Takes O(nlogn) to sort the list each time. Total time taken = O(n * nlogn) = O(n^2logn)
+                                        removing frequencies from list --- Iterates through all tuples once, O(n)
+                                        create_codes --- Iterates through all the elements once, O(n)
+4) encoded = encode_data(input_data)   --- O(n)
+5) decoded = decode_data(singletree, encoded) --- O(n)
+
+Space Complexity:
+
+Step1 - Worst case, all n characters in input are different. n bytes for n characters and n bytes to store the count. So,O(2n).
+Step2 - Worst case, there will be n characters each with a frequency of 1. List will have tuples of (freq, char). Size of list is 2n in worst case. 
+Step3 - Constant
+Step4 - O(n)
+Step5 - O(n)
+Total Space Complexity = O(2n) + O(2n) = O(4n). (Steps5 and 6 are not considered, because they are only executed after steps 1 and 2 are finished and that memory is freed)
