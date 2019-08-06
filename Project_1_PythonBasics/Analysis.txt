@@ -1,0 +1,25 @@
+Task0 Complexity Analysis:
+Since we are accessing the elements directly using index, this has time complexity of O(1).
+Space Complexity = Nothing (not allocating any memory, except for running code)
+
+Task1 Complexity Analysis:
+Time Complexity = For each entry in caller list, n element search is performed 4 times, which is 4n. 
+For n, elements time complexity = 4n + 4n + 4n+ ..... +4n = 4n (1+2+3+...+n) = 4n * (n*(n+1)/2) = 4n * n^2 = 4n^3 = O(n^3)
+Space Complexity = O(n) for storing unique records, where n is the length of the largest record (either call or text).
+
+Task2 Complexity Analysis:
+O(n) for iterating all the elements (while loop). Constant time for finding date and time of longest call.
+Time Complexity = O(n)
+Space Complexity = Constant (memory for 5 local variables). Since this is not dependent on input, O(1).
+
+Task3 Complexity Analysis:
+O(n) for scanning through each entry in calls list.
+Assuming a max prefix length of 6, 5 comparison operations are required to identify prefix for each number.
+O(n) for scanning through selected list of numbers and logn (assuming) for in-built sort routine.
+Total Time Complexity = O(n) + logn + O(n)= 2*O(n) + logn = O(n) + logn
+Total Space Complexity = O(n). O(n) for storing selected list of numbers, few local variables which has O(1). 
+
+Task4 Complexity Analysis:
+For each entry in caller list(of size n), we are performing a search 3 times. Each search will do a n element search. So for one entry in record, we will do a (n+n+n=3n) search.
+So, for n elements, 3n + 3n + 3n + ..... + 3n = 3n (1+2+...+n) = 3n * (n * (n + 1 ) ) / 2 = 3n * n^2 = 3n^3 = O(n^3)
+Space Complexity = O(n) to store the list of potential spammers.
